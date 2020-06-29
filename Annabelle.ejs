@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>ANNABELLE 1&2</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <%- include ("header.ejs") %>
+    
+    <div id="container1"> ANNABELLE 1&2</div>
+    <br><br><br>
+    <h1>Annabelle </h1>
+    <h2> Descriere</h2>
+    <p class="p_top"></p>
+    <br><br>
+    <h1>Annabelle: Creation</h1>
+    <h2>Descriere</h2>
+    <p class="p_top"></p>
+    <h5>Trailer-urile oficiale:</h5>
+    <div class="div1">
+        <iframe class="video2" src="https://www.youtube.com/embed/paFgQNPGlsg"></iframe>
+        <iframe class="video2" src="https://www.youtube.com/embed/kIZDubapYCc"></iframe>
+    </div>
+    <br><br>
+    <h1>Galerie</h1>
+    <div class="galerie">
+    	<figure class="ig">
+            <img class="imag" src="a1.jpg" alt="imagine"/>
+        </figure>
+
+        <figure class="ig">
+            <img class="imag" src="a2.gif" alt="imagine" /> 
+        </figure>
+
+        <figure class="ig">
+            <img class="imag" src="a2a3.gif" alt="imagine"/>
+        </figure>
+    </div>
+    <p class="p_top">Daca vrei sa afli povestea reala a papusii Annabelle, apasa aici:<button onclick="create_element()">Click</button></p>
+    <div id="new_element"></div>
+    <script src="index.js"></script>
+    <script src="Annabelle.js"></script>
+</body>
+</html>

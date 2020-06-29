@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>FEEDBACK</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width">
+    <meta charset="UTF-8">
+    <script>
+        window.onload = function(){
+            document.getElementById('send').addEventListener('click', function(){
+                let newName = document.getElementById('name').value;
+                let newMessage = document.getElementById('message').value;
+                console.log(newName + '   ' +newMessage);
+                fetch('http://localhost:2000/reviews', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                     },
+                    body: JSON.stringify({
+                    nume: newName,
+                    mesaj: newMessage
+
+                    })
+                })
+                .then(response => response.json())
+                .then(data =>{
+                    document.getElementById('review').innerText = data.response;
+                })
+            })
+        
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li><a href="Acasa.html">Acasa</a></li>
+        <li><a href="Top5filmelemelepreferate.html">Top 5 filme preferate</a></li>
+        <li class="dropdown">
+            <div class="dropbtn">The Conjuring Universe</div>
+            <div class="dropdown-content">
+                <a href="TheConjuringUniverse.html">Info</a>
+                <a href="TheConjuring1&2.html">The Conjuring 1 & 2</a>
+                <a href="Annabelle1&2.html">Annabelle 1 & 2</a>
+                <a href="TheNun.html">The Nun</a>
+            </div>
+        </li>
+        <li><a href="FridayThe13th.html">Friday the 13th</a></li>
+        <li><a href="Filtru.html">Filtru</a></li>
+        <li><a href="Imagini.html">Galerie imagini</a></li>
+        <li><a href="Feedback.html">Feedback</a></li>
+    </ul>
+    
+    <form id="form">
+        <h1>Trimite parerea ta</h1>
+        <div>
+            <label for="name">Nume</label></br>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email">
+        </div>
+        <div>
+            <label for="message">Mesaj</label><br>
+            <textarea id="message" name="message" ></textarea>
+        </div>
+        <div id="b_row">
+            <div class="buttons">
+                <button type="submit" id="send">Trimite</button>
+            </div>
+            <div class="buttons">
+                <button id="reset">Sterge</button>
+            </div>
+        </div>
+    </form>
+    <br><br> 
+    <p class="p_top">
+        Review-uri:
+    </p>
+    <div id="review">
+        Nimic
+    </div>
+    <script src="Feedback.js"></script>
+</body>
+
+</html>

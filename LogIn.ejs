@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/style.css" />
+<% if(locals.user) { %>
+
+    <div id = 'userResponse' style="color: aliceblue;"> User logat: <%= user %> </div>
+    <div id = 'logoutResponse' style="color: aliceblue;">
+        <button id ='deconectare'>Log Out</button>
+    </div>
+    <script>
+        window.onload = function(){
+            document.getElementById('deconectare').addEventListener('click', function(){
+            fetch('http://localhost:3000/LogOut', {
+                method: 'POST'
+            })
+            .then((response) =>{
+                if(response.status === 200){
+                    document.getElementById('logoutResponse').innerHTML = 'Ai iesit din cont!';
+                    document.getElementById('userResponse').innerHTML = '';
+                }
+            })
+            .then(() => {
+            window.location.href = "homeLogin";
+        })
+        })}
+    </script>
+<% } %>
+
+
+        
+   

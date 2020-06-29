@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>ACASA</title>
+    <link rel="stylesheet" href="/style.css" />
+    <meta name="viewport" content="width=device-width">
+    <script>
+        window.onload = function(){
+            document.getElementById('createUser').addEventListener('click', function(){
+                let newUsername = document.getElementById('username').value
+                let newPassword = document. getElementById('password').value
+                fetch('http://localhost:3000/homeSignUp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                    username: newUsername,
+                    parola: newPassword
+                    })
+                })
+                .then(response => response.json())
+                .then(data =>{
+                    document.getElementById('message').innerText = data.response
+                })
+            })
+        }
+    </script>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <%- include ("header.ejs") %>
+
+    <div id = 'actions'> 
+        <label>Username:</label>
+        <input type = text id = 'username'><br>
+        <label>Parola:</label>
+        <input type = password id = 'password'>
+        <button id = 'createUser'>Sign Up</button>
+    </div>
+    <p id = 'message' style="color: aliceblue; margin-left: 5%;"></p>
+    <br><br><br>
+    <br>
+    

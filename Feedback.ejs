@@ -1,0 +1,72 @@
+<html lang="ro">
+<head>
+    <title>FEEDBACK</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8">
+    <script>
+        window.onload = function(){
+            document.getElementById('send').addEventListener('click', function(){
+                let newName = document.getElementById('name').value;
+                let newMessage = document.getElementById('message').value;
+                fetch('http://localhost:3000/reviews', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                     },
+                    body: JSON.stringify({
+                    nume: newName,
+                    mesaj: newMessage
+
+                    })
+                })
+                .then(response => response.json())
+                .then(data =>{
+                    document.getElementById('review').innerText = data.response;
+                })
+            })
+        
+        }
+    </script>
+</head>
+<body>
+   <%- include ("header.ejs") %>
+    <form id="form">
+        <h1>Trimite parerea ta</h1>
+        <div>
+            <label for="name">Nume</label></br>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <label for="message">Mesaj</label><br>
+            <textarea id="message" name="message" ></textarea>
+        </div>
+        <div id="b_row">
+            <div class="buttons">
+                <button type="submit" id="send">Trimite</button>
+            </div>
+            <div class="buttons">
+                <button id="reset">Sterge</button>
+            </div>
+        </div>
+        <p id = 'review'></p>
+    </form>
+    <br><br> 
+    <% if (locals.r) {%>
+        <table class = 'tableF'>
+            <tr>
+                <th>NUME</th>
+                <th>MESAJ</th>
+            </tr>
+      <%  for (var i = 0; i<r.next; i++){ %>
+            <tr>
+                <th><%= r.reviews[i].nume %></th>
+                <th> <%- r.reviews[i].mesaj%></th>
+            </tr>
+      <% } %>
+      </table>
+    <% } %>
+    <script src = 'Feedback.js'></script>
+</body>
+
+</html>

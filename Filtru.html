@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>FILTRU FILME</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <ul>
+        <li><a href="Acasa.html">Acasa</a></li>
+        <li><a href="Top5filmelemelepreferate.html">Top 5 filme preferate</a></li>
+        <li class="dropdown">
+            <div class="dropbtn">The Conjuring Universe</div>
+            <div class="dropdown-content">
+                <a href="TheConjuringUniverse.html">Info</a>
+                <a href="TheConjuring1&2.html">The Conjuring 1 & 2</a>
+                <a href="Annabelle1&2.html">Annabelle 1 & 2</a>
+                <a href="TheNun.html">The Nun</a>
+            </div>
+        </li>
+        <li><a href="FridayThe13th.html">Friday the 13th</a></li>
+        <li><a href="Filtru.html">Filtru</a></li>
+        <li><a href="Imagini.html">Galerie imagini</a></li>
+        <li><a href="Feedback.html">Feedback</a></li>
+    </ul>
+    <div id="container1"> </div>
+    <br><br><br>
+    <p class="p_top">
+        Esti la o seara cu prietenii si cautati un film sa il vizionati? Nu aveti nici cea mai mica idee ce sa alegeti? Filtrul de mai jos va vine in ajutor. In functie de ceea ce bifati, veti primi recomandari. 
+    </p>
+    <div id="checkbox">
+        <form id="cb">
+        <div class="checkColumns"> Perioada:<br>
+            <input type="checkbox" class="myCheck" value="1950-1980">1950-1980<br>
+            <input type="checkbox" class="myCheck" value="1980-2000">1980-2000<br>
+            <input type="checkbox" class="myCheck" value="2000-prezent">2000-prezent<br>
+        </div>
+        <div class="checkColumns"> Genul:<br>
+            <input type="checkbox" class="myCheck1" value="Slasher">Slasher<br>
+            <input type="checkbox" class="myCheck1" value="Ocult">Ocult<br>
+            <input type="checkbox" class="myCheck1" value="Posedare">Posedare<br>
+            <input type="checkbox" class="myCheck1" value="Altele"> Altele<br>
+        </div>
+        </form>
+        <button onclick="show()">Cauta</button>
+    </div>
+    <p id="raspuns"></p>
+    <script src="Filtru.js"></script>
+</body>
+</html>
